@@ -34,8 +34,32 @@ public:
 
 int main()
 {
+    int choice;
     Student S1;
-    S1.acceptStudentFromConsole();
-    S1.printStudentOnConsole();
+    do
+    {
+        cout<<"1)Init Student"<<endl;
+        cout<<"2)Enter Student into"<<endl;
+        cout<<"3)Print Student info"<<endl;
+        cout<<"4)EXIT"<<endl;
+        cin>>choice;
+        switch (choice)
+        {
+        case 1:
+        S1.initStudent();
+        break;
+        case 2:
+        S1.acceptStudentFromConsole();
+        break;
+        case 3:
+        S1.printStudentOnConsole();
+        break;
+        case 4:
+        cout<<"EXITED"<<endl;
+        default:
+            break;
+        }
+    } while (choice !=4);
+    
     return 0;
 }
