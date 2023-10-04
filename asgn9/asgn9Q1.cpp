@@ -1,33 +1,55 @@
 #include <iostream>
 using namespace std;
-long factorial(int n);
+
+class Factorial
+{
+private:
+    int num1;
+    float fact;
+
+public:
+    Factorial()
+    {
+        this->num1 = 1;
+        this->fact = 1;
+    }
+    Factorial(int num1, float fact)
+    {
+        this->num1 = num1;
+        this->fact = fact;
+    }
+    void acceptNumber()
+    {
+        cout << "Enter the Number = ";
+        cin >> num1;
+    }
+    void factorial()
+    {
+        if (num1 < 0)
+        {
+            throw 2.0f;
+        }
+        for (int i = 1; i <= num1; i++)
+        {
+            fact = fact * i;
+        }
+    }
+    void displayFactorial()
+    {
+        cout << "Factorial of " << num1 << " is = " << fact << endl;
+    }
+};
 int main()
 {
-    int fact, value;
-    cout << "Enter any number: ";
-    cin >> value;
+    Factorial f1;
+    f1.acceptNumber();
     try
     {
-        fact = factorial(value);
-        cout << "Factorial of a number is: " << fact << endl;
+        f1.factorial();
+        f1.displayFactorial();
     }
-    catch (int error)
+    catch (float e)
     {
-        cout << "Input must be a non-negative integer." << endl;
+        cout << "Entered Number is Negitive" << endl;
     }
-    return 0;
-}
-long factorial(int n)
-{
-    if (n < 0)
-    {
-        throw 1;
-    }
-
-    long result = 1;
-    for (int i = 2; i <= n; ++i)
-    {
-        result *= i;
-    }
-    return result;
 }
